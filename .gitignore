@@ -1,0 +1,3 @@
+.streamlit/secrets.toml
+vector_store
+azure_openai_usage.log
