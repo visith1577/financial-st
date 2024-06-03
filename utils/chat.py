@@ -11,9 +11,9 @@ import vertexai
 from langchain_cohere import ChatCohere
 
 vertexai.init(
-    project="artful-doodad-423906-a6",
+    project=st.secrets['PROJECT'],
     location="asia-east1",
-    staging_bucket="gs://vck-genai-bkt",
+    staging_bucket=st.secrets['BUCKET'],
 )
 
 embedding = JinaEmbeddings(jina_api_key=st.secrets['JINA_KEY'], model_name="jina-embeddings-v2-base-en")
