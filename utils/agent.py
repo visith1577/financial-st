@@ -5,7 +5,7 @@ from langchain_groq import ChatGroq
 
 agent_tools = [TavilySearchResults(max_results=3)]
 
-agent_llm = ChatGroq(model="llama3-70b-8192", temperature=0)
+agent_llm = ChatGroq(model="llama3-groq-70b-8192-tool-use-preview", temperature=0)
 
 
 def create_agent(llm, tools: list):

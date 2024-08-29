@@ -102,9 +102,9 @@ def retriever(symbol):
 
 
 def get_response(user_message, docu_knowledge, financial_statement, symbol, callback):
-    model = ChatVertexAI(model_name='gemini-1.5-flash-001', streaming=True, temperature=0,
-                         callbacks=[callback])
-    # model = ChatCohere(model='command-r-plus', streaming=True, temperature=0, callbacks=[stream_handler])
+    # model = ChatVertexAI(model_name='gemini-1.5-flash-001', streaming=True, temperature=0,
+    #                      callbacks=[callback])
+    model = ChatCohere(model='command-r-plus', streaming=True, temperature=0, callbacks=[callback])
     retriever_model = retriever(symbol)
 
     conversation_with_summary = prompt | model
@@ -119,9 +119,9 @@ def get_response(user_message, docu_knowledge, financial_statement, symbol, call
 
 
 def get_sentiment(user_message, docu_knowledge, callback):
-    model = ChatVertexAI(model_name='gemini-1.5-flash-001', streaming=True, temperature=0.3,
-                         callbacks=[callback])
-
+    # model = ChatVertexAI(model_name='gemini-1.5-flash-001', streaming=True, temperature=0.3,
+    #                      callbacks=[callback])
+    model = ChatCohere(model="command-r-plus", streaming=True, temperature=0, callbacks=[callback])
     conversation_with_summary = sentiment_prompt | model
     output = conversation_with_summary.invoke({
         "input": user_message,
